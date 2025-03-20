@@ -42,9 +42,36 @@ exports.createUser = async (req, res) => {
     })
 
     res.status(201).json({
-      message: "เพิ่มข้อมูลสําเร็จ",
+      message: "Data inputted successfully!",
       data: result
     })
+  } catch (err) {
+    res.status(500).json({
+      message: `We ran into a problem: ${err}`
+    })
+    console.log('Error', err);
+  }
+}
+
+exports.checklogin = async (req, res) => {
+  try {
+    const result = await prisma.user_tb.findFirst({
+      where: {
+        userName: req.params.userName,
+        userPassword: req.params.userPassword,
+      }
+    })
+
+    if (result) {
+      res.status(200).json({
+        message: "Login successfully!",
+        data: result
+      })
+    } else {
+      res.status(400).json({
+        message: "Username or password is incorrect."
+      })
+    }
   } catch (err) {
     res.status(500).json({
       message: `พบเจอปัญหาในการทำงาน: ${err}`

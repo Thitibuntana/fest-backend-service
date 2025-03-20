@@ -44,12 +44,12 @@ exports.createFest = async (req, res) => {
     })
 
     res.status(201).json({
-      message: "เพิ่มข้อมูลสําเร็จ",
+      message: "Data inputted successfully!",
       data: result
     })
   } catch (err) {
     res.status(500).json({
-      message: `พบเจอปัญหาในการทำงาน: ${err}`
+      message: `We ran into a problem: ${err}`
     })
     console.log('Error', err);
   }
