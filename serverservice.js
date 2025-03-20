@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/user', userRoute);
 app.use('/fest',festRoute);
-
+app.use('/images', express.static('images'));
 
 app.get('/', (req, res) => {
     res.json({ message: "Hello, welcome to MY server!" })
