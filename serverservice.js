@@ -15,7 +15,7 @@ app.use('/fest',festRoute);
 
 
 app.get('/', (req, res) => {
-    res.json({ message: "Hello, welcome to Thanakorn server!" })
+    res.json({ message: "Hello, welcome to MY server!" })
 })
 
 app.listen(PORT, () => {
