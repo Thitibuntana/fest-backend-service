@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model user_tb {
+  userId       Int    @id @default(autoincrement())
+  userFullname String @db.VarChar(100)
+  userName     String @db.VarChar(50)
+  userPassword String @db.VarChar(50)
+  userImage    String @db.VarChar(100)
+}
+
+model fest_tb {
+  festId     Int    @id @default(autoincrement())
+  festName   String @db.VarChar(150)
+  festDetail String
+  festState  String
+  festNumDay Int
+  festCost   Float
+  userId     Int
+  festImage  String @db.VarChar(150)
+}
